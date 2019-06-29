@@ -11,12 +11,17 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { HeaderComponent } from './header/header.component';
 import { CategoriasComponent } from './categorias/categorias.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CategoriasServicoService } from './categorias/categorias-servico.service';
+import { HomeComponent } from './home/home.component';
+import { routing } from './app-routing';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    CategoriasComponent
+    CategoriasComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -25,9 +30,11 @@ import { CategoriasComponent } from './categorias/categorias.component';
     MatButtonModule,
     MatInputModule,
     MatGridListModule,
-    MatToolbarModule
+    MatToolbarModule,
+    HttpClientModule,
+    routing
   ],
-  providers: [],
+  providers: [CategoriasServicoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
