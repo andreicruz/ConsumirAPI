@@ -1,1 +1,19 @@
-<p>categorias works!</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Descrição</th>
+        <th scope="col"><i class="material-icons"> build</i></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let categoria of categorias">
+            <td>{{ categoria.id }}</td>
+            <td>{{ categoria.nome }}</td>
+            <td>{{ categoria.descricao }}</td>
+            <td><button class="btn btn-success">Editar</button><button class="btn btn-danger">Excluir</button></td>
+        </tr>
+    </tbody>
+</table>
