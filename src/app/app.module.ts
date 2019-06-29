@@ -10,11 +10,13 @@ import {MatInputModule} from '@angular/material/input';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { HeaderComponent } from './header/header.component';
+import { CategoriasComponent } from './categorias/categorias.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    CategoriasComponent
   ],
   imports: [
     BrowserModule,
