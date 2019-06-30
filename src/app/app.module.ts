@@ -10,18 +10,20 @@ import {MatInputModule} from '@angular/material/input';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { HeaderComponent } from './header/header.component';
-import { CategoriasComponent } from './categorias/categorias.component';
+import { CategoriasComponent } from './pasta-categorias/categorias/categorias.component';
 import { HttpClientModule } from '@angular/common/http';
-import { CategoriasServicoService } from './categorias/categorias-servico.service';
+import { CategoriasServicoService } from './pasta-categorias/categorias-servico.service';
 import { HomeComponent } from './home/home.component';
 import { routing } from './app-routing';
+import { DetalheCategoriaComponent } from './pasta-categorias/detalhe-categoria/detalhe-categoria.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     CategoriasComponent,
-    HomeComponent
+    HomeComponent,
+    DetalheCategoriaComponent
   ],
   imports: [
     BrowserModule,
