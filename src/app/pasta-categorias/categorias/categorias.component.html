@@ -13,7 +13,10 @@
             <td>{{ categoria.id }}</td>
             <td>{{ categoria.nome }}</td>
             <td>{{ categoria.descricao }}</td>
-            <td><button class="btn btn-success">Editar</button><button class="btn btn-danger">Excluir</button></td>
+            <td>
+                <a [routerLink]="['/categorias', categoria.id]" class="btn btn-success">Editar</a>
+                <a class="btn btn-danger">Excluir</a>
+            </td>
         </tr>
     </tbody>
 </table>
