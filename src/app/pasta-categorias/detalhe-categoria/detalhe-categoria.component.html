@@ -1,6 +1,9 @@
 <h2>Product Details</h2>
 
 <div *ngIf="categoria">
-  <h3>{{ categoria.nome }}</h3>
+  <input type="text" readonly value="{{categoria.id}}"><br/>
+  <input type="text" [(ngModel)]="categoria.nome"><br/>
+  <input type="text" [(ngModel)]="categoria.descricao">
+  <button (click)="updateCategoria()">Editar</button>
 
 </div>

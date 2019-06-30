@@ -19,6 +19,7 @@ export class CategoriasComponent implements OnInit {
 
   getCategorias(){
     this.categoriaService.getCategorias().subscribe(dados  => this.categorias = dados);
+    console.log(this.categorias);
   }
 
 }

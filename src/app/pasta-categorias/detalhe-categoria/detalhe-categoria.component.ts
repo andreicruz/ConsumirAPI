@@ -22,4 +22,7 @@ export class DetalheCategoriaComponent implements OnInit {
     })
   }
 
+  updateCategoria(){
+    this.categoriaServico.updateCategoria(this.categoria).subscribe(() => this.categoriaServico.backPage());
+  }
 }
