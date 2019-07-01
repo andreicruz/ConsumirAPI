@@ -1,1 +1,10 @@
-<p>criar-categoria works!</p>
+<form [formGroup]="form">
+    <label for="nome">Nome da Categoria</label>
+    <input type="text" formControlName="nome" placeholder="nome">
+
+    <label for="descricao">Descrição da Categoria</label>
+    <input type="text" formControlName="descricao" placeholder="descricao">
+
+    <button type="submit" (click)="addCategoria()">Criar</button>
+    <button type="button" (click)="limpar()">Limpar</button>
+</form>
