@@ -9,17 +9,23 @@ import { CategoriasServicoService } from '../categorias-servico.service';
 })
 export class CategoriasComponent implements OnInit {
 
-  categorias: Array<Categoria>
+  categorias: Array<Categoria>;
+  categoria: Categoria;
 
-  constructor(private categoriaService: CategoriasServicoService) { }
+  constructor(private categoriaServico: CategoriasServicoService) { }
 
   ngOnInit() {
     this.getCategorias();
   }
 
   getCategorias(){
-    this.categoriaService.getCategorias().subscribe(dados  => this.categorias = dados);
+    this.categoriaServico.getCategorias().subscribe(dados  => this.categorias = dados);
     console.log(this.categorias);
   }
 
+  
+  deleteCategoria(categoria: Categoria) { 
+    this.categoriaServico.deleteCategoria(categoria).subscribe();
+    this.categorias = this.categorias.filter(item => item.id != categoria.id);
+  }
 }

@@ -28,6 +28,10 @@ export class CategoriasServicoService {
     return this.http.post(this.apiUrl + '/categorias', categoria); 
   }
 
+  deleteCategoria(categoria: Categoria) {
+    return this.http.delete(`${this.apiUrl + '/categorias'}/${categoria.id}`); 
+  }
+
   backPage(){
     this.location.back();
   }
