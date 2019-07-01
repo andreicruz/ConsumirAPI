@@ -24,6 +24,10 @@ export class CategoriasServicoService {
     return this.http.put(`${this.apiUrl + '/categorias'}/${categoria.id}`, categoria); 
   }
 
+  addCategoria(categoria: Categoria){
+    return this.http.post(this.apiUrl + '/categorias', categoria); 
+  }
+
   backPage(){
     this.location.back();
   }
