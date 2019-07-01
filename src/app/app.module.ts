@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +18,7 @@ import { HomeComponent } from './home/home.component';
 import { routing } from './app-routing';
 import { DetalheCategoriaComponent } from './pasta-categorias/detalhe-categoria/detalhe-categoria.component';
 import { CriarCategoriaComponent } from './pasta-categorias/criar-categoria/criar-categoria.component';
+
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { CriarCategoriaComponent } from './pasta-categorias/criar-categoria/cria
     MatToolbarModule,
     HttpClientModule,
     routing,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [CategoriasServicoService],
   bootstrap: [AppComponent]
