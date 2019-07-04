@@ -20,6 +20,7 @@ import { DetalheCategoriaComponent } from './pasta-categorias/detalhe-categoria/
 import { CriarCategoriaComponent } from './pasta-categorias/criar-categoria/criar-categoria.component';
 import { ProdutosComponent } from './pasta-produtos/produtos/produtos.component';
 import { DetalheProdutoComponent } from './pasta-produtos/detalhe-produto/detalhe-produto.component';
+import { CriarProdutoComponent } from './pasta-produtos/criar-produto/criar-produto.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { DetalheProdutoComponent } from './pasta-produtos/detalhe-produto/detalh
     DetalheCategoriaComponent,
     CriarCategoriaComponent,
     ProdutosComponent,
-    DetalheProdutoComponent
+    DetalheProdutoComponent,
+    CriarProdutoComponent
   ],
   imports: [
     BrowserModule,
