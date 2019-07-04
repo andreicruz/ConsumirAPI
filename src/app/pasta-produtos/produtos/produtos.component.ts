@@ -23,5 +23,13 @@ export class ProdutosComponent implements OnInit {
     console.log(this.produtos);
   }
 
+  deleteProduto(produto: Produto) { 
+    if(produto.categoria_id === null){    
+      this.produtoServico.deleteProduto(produto).subscribe();
+      this.produtos = this.produtos.filter(item => item.id != produto.id);
+    }else{
+      console.log('nao pode');
+    }
+  }
 
 }
