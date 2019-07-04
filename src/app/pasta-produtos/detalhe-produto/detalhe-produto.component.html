@@ -1,0 +1,16 @@
+<h2>Product Details</h2>
+
+<div *ngIf="produto">
+  <input type="text" readonly value="{{produto.id}}"><br/>
+  <input type="text" [(ngModel)]="produto.nome"><br/>
+  <input type="text" [(ngModel)]="produto.preco"><br/>
+  <input type="text" [(ngModel)]="produto.descricao">
+  <input type="text" [(ngModel)]="produto.categoria_id">
+  <button (click)="updateProduto()">Editar</button>
+</div>
+<h3>Categoria</h3>
+<div *ngIf="categoria">
+  <input type="text" readonly value="{{categoria.id}}"><br/>
+  <input type="text" [(ngModel)]="categoria.nome"><br/>
+  <input type="text" [(ngModel)]="categoria.descricao">
+</div>
