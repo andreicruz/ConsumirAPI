@@ -18,6 +18,8 @@ import { HomeComponent } from './home/home.component';
 import { routing } from './app-routing';
 import { DetalheCategoriaComponent } from './pasta-categorias/detalhe-categoria/detalhe-categoria.component';
 import { CriarCategoriaComponent } from './pasta-categorias/criar-categoria/criar-categoria.component';
+import { ProdutosComponent } from './pasta-produtos/produtos/produtos.component';
+import { DetalheProdutoComponent } from './pasta-produtos/detalhe-produto/detalhe-produto.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { CriarCategoriaComponent } from './pasta-categorias/criar-categoria/cria
     CategoriasComponent,
     HomeComponent,
     DetalheCategoriaComponent,
-    CriarCategoriaComponent
+    CriarCategoriaComponent,
+    ProdutosComponent,
+    DetalheProdutoComponent
   ],
   imports: [
     BrowserModule,

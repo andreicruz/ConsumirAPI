@@ -17,7 +17,7 @@ export class CategoriasServicoService {
   }
 
   getCategoria(id){
-    return this.http.get(`${this.apiUrl + '/categorias'}/${id}/editar`) 
+    return this.http.get(`${this.apiUrl + '/categorias'}/${id}`) 
   }
 
   updateCategoria(categoria: Categoria){
