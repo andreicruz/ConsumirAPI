@@ -6,12 +6,14 @@ import { CategoriasComponent } from './pasta-categorias/categorias/categorias.co
 import { ModuleWithProviders } from '@angular/core';
 import { DetalheCategoriaComponent } from './pasta-categorias/detalhe-categoria/detalhe-categoria.component';
 import { ProdutosComponent } from './pasta-produtos/produtos/produtos.component';
+import { CriarProdutoComponent } from './pasta-produtos/criar-produto/criar-produto.component';
 
 const APP_ROUTES: Routes = [
     { path: 'categorias', component: CategoriasComponent},
     { path: 'categorias/novo', component: CriarCategoriaComponent},
     { path: 'categorias/:id', component: DetalheCategoriaComponent},
     { path: 'produtos', component: ProdutosComponent},
+    { path: 'produtos/novo', component: CriarProdutoComponent},
     { path: 'produtos/:id', component: DetalheProdutoComponent},
     { path: '', component: HomeComponent}
 ];

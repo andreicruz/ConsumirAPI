@@ -21,7 +21,9 @@ import { CriarCategoriaComponent } from './pasta-categorias/criar-categoria/cria
 import { ProdutosComponent } from './pasta-produtos/produtos/produtos.component';
 import { DetalheProdutoComponent } from './pasta-produtos/detalhe-produto/detalhe-produto.component';
 import { CriarProdutoComponent } from './pasta-produtos/criar-produto/criar-produto.component';
-
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,10 @@ import { CriarProdutoComponent } from './pasta-produtos/criar-produto/criar-prod
     HttpClientModule,
     routing,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatSelectModule
   ],
   providers: [CategoriasServicoService],
   bootstrap: [AppComponent]

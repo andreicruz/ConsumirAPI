@@ -29,6 +29,10 @@ export class ProdutosServicoService {
     return this.http.delete(`${this.apiUrl + '/produtos'}/${produto.id}`); 
   }
 
+  addProduto(produto: Produto){
+    return this.http.post(this.apiUrl + '/produtos', produto); 
+  }
+
   backPage(){
     this.location.back();
   }
