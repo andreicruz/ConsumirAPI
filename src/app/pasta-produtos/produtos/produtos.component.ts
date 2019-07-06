@@ -11,6 +11,7 @@ export class ProdutosComponent implements OnInit {
 
   produtos: Array<Produto>;
   produto: Produto;
+  displayedColumns: string[] = ['id', 'nome', 'descricao', 'preco', 'categoria_id', 'config'];
 
   constructor(private produtoServico: ProdutosServicoService) { }
 

@@ -16,7 +16,6 @@ export class CategoriasComponent implements OnInit {
   categoria: Categoria;
   produtos: Produto[];
   categoriaVinculada: boolean;
-  durationInSeconds = 5;
   displayedColumns: string[] = ['id', 'nome', 'descricao', 'config'];
 
   constructor(private categoriaServico: CategoriasServicoService, 
