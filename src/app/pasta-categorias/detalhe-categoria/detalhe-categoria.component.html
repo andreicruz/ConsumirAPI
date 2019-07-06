@@ -1,9 +1,27 @@
 <h2>Product Details</h2>
 
 <div *ngIf="categoria">
-  <input type="text" readonly value="{{categoria.id}}"><br/>
-  <input type="text" [(ngModel)]="categoria.nome"><br/>
-  <input type="text" [(ngModel)]="categoria.descricao">
-  <button (click)="updateCategoria()">Editar</button>
-
+	<form [formGroup]="form">
+		<div class="row form">
+			<input type="text" readonly [(ngModel)]="categoria.id" formControlName="id" style="display: none">
+			<div class="col-xs-12 col-md-6">
+				<mat-form-field class="full-width-field" hintLabel="Máximo 50 caracteres">
+					<input matInput #nome maxlength="50" [(ngModel)]="categoria.nome" placeholder="Nome Categoria" formControlName="nome" required>
+					<mat-error *ngIf="nome.invalid">{{getErrorMessageNome()}}</mat-error>
+					<mat-hint align="end">{{nome.value?.length || 0}}/50</mat-hint>
+				</mat-form-field>
+			</div>
+			<div class="col-xs-12 col-md-6">
+				<mat-form-field class="full-width-field" hintLabel="Máximo 50 caracteres">
+					<input matInput #descricao maxlength="50" [(ngModel)]="categoria.descricao" placeholder="Nome Descricao" formControlName="descricao" required>
+					<mat-error *ngIf="descricao.invalid">{{getErrorMessageDescricao()}}</mat-error>
+					<mat-hint align="end">{{descricao.value?.length || 0}}/50</mat-hint>
+				</mat-form-field>
+			</div>
+		</div>
+		<div class="botoes text-right mt-3">
+			<button mat-raised-button class="mr-2" color="primary" (click)="updateCategoria()">Editar</button>
+			<button mat-raised-button color="basic" (click)="limpar()">Limpar</button>
+		</div>
+	</form>
 </div>
