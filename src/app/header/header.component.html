@@ -1,9 +1,21 @@
 <mat-toolbar class="header">
-    <div class="home">
-        <a routerLink=""><i class="material-icons">home</i></a>
-    </div>
-    <div class="menu">
-        <a routerLink="/categorias">Categorias</a>
-        <a routerLink="/produtos">Produtos</a>
+    <div class="container">
+        <div class="menus">
+            <div class="home">
+                <a routerLink=""><i class="material-icons">home</i></a>
+            </div>
+            <div class="menu">
+                <button mat-button [matMenuTriggerFor]="menuCategorias">Categorias</button>
+                <mat-menu #menuCategorias="matMenu">
+                    <button routerLink="/categorias" mat-menu-item>Listar</button>
+                    <button routerLink="/categorias/novo" mat-menu-item>Nova</button>
+                </mat-menu>
+                <button mat-button [matMenuTriggerFor]="menuProdutos">Produtos</button>
+                <mat-menu #menuProdutos="matMenu">
+                    <button routerLink="/produtos" mat-menu-item>Listar</button>
+                    <button routerLink="/produtos/novo" mat-menu-item>Novo</button>
+                </mat-menu>
+            </div>
+        </div>
     </div>
 </mat-toolbar>

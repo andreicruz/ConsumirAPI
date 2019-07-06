@@ -1,6 +1,18 @@
 .header
-    background-color: #009688
-    & .home
-        flex: 0.2
-    & .menu
-        flex: auto
+    background-color: #303F9F
+    color: white
+    position: fixed
+    top: 0
+    z-index: 9999
+    & .menus
+        display: flex
+        & .home
+            flex: 0.2
+            & a
+                color: white
+                & .material-icons
+                    font-size: 40px
+        & .menu
+            flex: auto
+            & button
+                margin-top: 6px
