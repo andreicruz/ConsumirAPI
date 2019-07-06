@@ -23,5 +23,9 @@ export class ProdutosComponent implements OnInit {
     console.log(this.produtos);
   }
 
+  deleteProduto(produto: Produto) { 
+      this.produtoServico.deleteProduto(produto).subscribe();
+      this.produtos = this.produtos.filter(item => item.id != produto.id);
+  }
 
 }
