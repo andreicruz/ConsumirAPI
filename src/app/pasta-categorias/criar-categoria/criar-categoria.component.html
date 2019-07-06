@@ -1,10 +1,23 @@
 <form [formGroup]="form">
-    <label for="nome">Nome da Categoria</label>
-    <input type="text" formControlName="nome" placeholder="nome">
+    <div class="row form">
+        <div class="col-xs-12 col-md-6">
+            <mat-form-field class="full-width-field" hintLabel="Máximo 50 caracteres">
+                <input matInput #nome maxlength="50" placeholder="Nome Categoria" formControlName="nome" required>
+                <mat-error *ngIf="nome.invalid">{{getErrorMessageNome()}}</mat-error>
+                <mat-hint align="end">{{nome.value?.length || 0}}/50</mat-hint>
+            </mat-form-field>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <mat-form-field class="full-width-field" hintLabel="Máximo 50 caracteres">
+                <input matInput #descricao maxlength="50" placeholder="Descrição Categoria" formControlName="descricao" required>
+                <mat-error *ngIf="descricao.invalid">{{getErrorMessageDescricao()}}</mat-error>
+                <mat-hint align="end">{{descricao.value?.length || 0}}/50</mat-hint>
+            </mat-form-field>
+        </div>
+    </div>
 
-    <label for="descricao">Descrição da Categoria</label>
-    <input type="text" formControlName="descricao" placeholder="descricao">
-
-    <button type="submit" (click)="addCategoria()">Criar</button>
-    <button type="button" (click)="limpar()">Limpar</button>
+    <div class="botoes text-right mt-3">
+        <button mat-raised-button class="mr-2" color="primary" (click)="addCategoria()">Criar</button>
+        <button mat-raised-button color="basic" (click)="limpar()">Limpar</button>
+    </div>
 </form>

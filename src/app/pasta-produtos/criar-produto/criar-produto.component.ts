@@ -64,4 +64,8 @@ export class CriarProdutoComponent implements OnInit {
     }
    // this.categoriaServico.addCategoria(this.categoria).subscribe(categoria => this.categoria.push(categoria))
   }
+  
+  limpar() {
+    this.form.reset();
+  }
 }

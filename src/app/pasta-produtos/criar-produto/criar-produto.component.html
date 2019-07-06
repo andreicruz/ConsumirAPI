@@ -1,21 +1,21 @@
 <form [formGroup]="form">
     <div class="row form">
         <div class="col-xs-12 col-md-6">
-            <mat-form-field class="full-width-field" hintLabel="Máximo 200 caracteres">
-                <input matInput maxlength="50" placeholder="Nome Produto" formControlName="nome" required>
+            <mat-form-field class="full-width-field" hintLabel="Máximo 50 caracteres">
+                <input matInput #nome maxlength="50" placeholder="Nome Produto" formControlName="nome" required>
                 <mat-error *ngIf="nome.invalid">{{getErrorMessageNome()}}</mat-error>
-                <mat-hint align="end">{{nome.value?.length || 0}}/200</mat-hint>
+                <mat-hint align="end">{{nome.value?.length || 0}}/50</mat-hint>
             </mat-form-field>
         </div>
         <div class="col-xs-12 col-md-6">
-            <mat-form-field class="full-width-field" hintLabel="Máximo 200 caracteres">
-                <input matInput maxlength="50" placeholder="Descrição Produto" formControlName="descricao" required>
+            <mat-form-field class="full-width-field" hintLabel="Máximo 50 caracteres">
+                <input matInput #descricao maxlength="50" placeholder="Descrição Produto" formControlName="descricao" required>
                 <mat-error *ngIf="descricao.invalid">{{getErrorMessageDescricao()}}</mat-error>
-                <mat-hint align="end">{{descricao.value?.length || 0}}/200</mat-hint>
+                <mat-hint align="end">{{descricao.value?.length || 0}}/50</mat-hint>
             </mat-form-field>
         </div>
     </div>
-    <div class="row form">
+    <div class="row form mt-5">
         <div class="col-xs-12 col-md-6">
             <mat-form-field class="full-width-field">
                 <input matInput type="number" step='0.01' value='0.00' placeholder="Preco Produto" formControlName="preco" required>
@@ -34,6 +34,6 @@
     </div>
     <div class="botoes text-right">
         <button mat-raised-button class="mr-2" color="primary" (click)="addProduto()">Criar</button>
-        <button mat-raised-button color="basic">Limpar</button>
+        <button mat-raised-button color="basic" (click)="limpar()">Limpar</button>
     </div>
 </form>
