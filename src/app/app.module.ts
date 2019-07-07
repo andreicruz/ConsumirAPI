@@ -32,6 +32,7 @@ import { ProdutosServicoService } from './pasta-produtos/produtos-servico.servic
 import { CadastroService } from './pasta-usuarios/cadastro.service';
 import { LoginComponent } from './pasta-usuarios/login/login.component';
 import { AuthService } from './pasta-usuarios/auth.service';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,7 @@ import { AuthService } from './pasta-usuarios/auth.service';
     MatTableModule,
     MatMenuModule
   ],
-  providers: [CategoriasServicoService, ProdutosServicoService, CadastroService, AuthService],
+  providers: [CategoriasServicoService, ProdutosServicoService, CadastroService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

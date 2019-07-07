@@ -1,3 +1,4 @@
+import { AuthService } from './../../pasta-usuarios/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Categoria } from '../categoria';
 import { CategoriasServicoService } from '../categorias-servico.service';
@@ -20,7 +21,8 @@ export class CategoriasComponent implements OnInit {
 
   constructor(private categoriaServico: CategoriasServicoService, 
               private produtoServico: ProdutosServicoService,
-              private snackBar: MatSnackBar) {
+              private snackBar: MatSnackBar,
+              private authServico: AuthService) {
     this.categoriaVinculada = false;
    }
 
@@ -52,9 +54,11 @@ export class CategoriasComponent implements OnInit {
     if(this.categoriaVinculada){
       this.snackOpen('Categoria vinculada a um produto', 'Fechar');
     }else{
-      if(confirm('Deseja deletar?')){
-        this.categoriaServico.deleteCategoria(categoria).subscribe();
-        this.categorias = this.categorias.filter(item => item.id != categoria.id);
+      if(this.authServico.usuarioEstaAutenticado()) {
+        if(confirm('Deseja deletar?')){
+          this.categoriaServico.deleteCategoria(categoria).subscribe();
+          this.categorias = this.categorias.filter(item => item.id != categoria.id);
+        }
       }
     }
   }
