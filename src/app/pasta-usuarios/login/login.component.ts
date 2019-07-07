@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { CadastroService } from '../cadastro.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
   login = new FormControl('', [Validators.required, Validators.minLength(3)]);
   senha = new FormControl('', [Validators.required, Validators.minLength(3)]);
   
-  constructor(private authServico: AuthService, private cadastroServico: CadastroService, private fb: FormBuilder, private snackBar: MatSnackBar) { }
+  constructor(private authServico: AuthService, private cadastroServico: CadastroService, private fb: FormBuilder, private snackBar: MatSnackBar,
+              private route: Router) { }
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -60,6 +62,14 @@ export class LoginComponent implements OnInit {
       duration: 2000,
       panelClass: ['alert-snackbar']
     });
+  }
+
+  limpar() {
+    this.form.reset();
+  }
+
+  navigateToCadastro() {
+    this.route.navigateByUrl('cadastro');
   }
 
 }
