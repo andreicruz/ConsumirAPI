@@ -132,4 +132,8 @@ export class CadastroComponent implements OnInit {
   limpar() {
     this.form.reset();
   }
+
+  navigateToLogin() {
+    this.route.navigateByUrl('login');
+  }
 }

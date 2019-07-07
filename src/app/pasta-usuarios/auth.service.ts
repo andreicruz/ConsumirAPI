@@ -19,6 +19,12 @@ export class AuthService {
     this.router.navigateByUrl('home');
   }
 
+  fazerLogout(){
+    this.usuarioAutenticado = false;
+    this.mostrarMenuEmitter.emit(false);
+    this.router.navigateByUrl('');
+  }
+
   usuarioEstaAutenticado() {
     return this.usuarioAutenticado;
   }

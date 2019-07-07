@@ -15,6 +15,7 @@
                     <button routerLink="/produtos" mat-menu-item>Listar</button>
                     <button routerLink="/produtos/novo" mat-menu-item>Novo</button>
                 </mat-menu>
+                <button *ngIf="monstrarLogout" class="logout" mat-flat-button color="primary" (click)="deslogar()">Logout</button>
             </div>
         </div>
     </div>
