@@ -1,0 +1,85 @@
+<form [formGroup]="form">
+    <div class="row form">
+        <div class="col-xs-12 col-md-6">
+            <mat-form-field class="full-width-field" hintLabel="Máximo 50 caracteres">
+                <input matInput #nome maxlength="50" placeholder="Nome" formControlName="nome" required>
+                <mat-error *ngIf="nome.invalid">{{getErrorMessageNome()}}</mat-error>
+                <mat-hint align="end">{{nome.value?.length || 0}}/50</mat-hint>
+            </mat-form-field>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <mat-form-field class="full-width-field" hintLabel="Máximo 50 caracteres">
+                <input matInput #sobrenome maxlength="50" placeholder="Sobrenome" formControlName="sobrenome" required>
+                <mat-error *ngIf="sobrenome.invalid">{{getErrorMessageSobrenome()}}</mat-error>
+                <mat-hint align="end">{{sobrenome.value?.length || 0}}/50</mat-hint>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row form mt-3">
+        <div class="col-xs-12 col-md-6">
+            <mat-form-field class="full-width-field" hintLabel="Máximo 50 caracteres">
+                <input matInput #email maxlength="50" placeholder="Email" formControlName="email" required>
+                <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error>
+                <mat-hint align="end">{{email.value?.length || 0}}/50</mat-hint>
+            </mat-form-field>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <mat-form-field class="full-width-field" hintLabel="Máximo 50 caracteres">
+                <input matInput #senha maxlength="50" placeholder="Senha" formControlName="senha" required>
+                <mat-error *ngIf="senha.invalid">{{getErrorMessageSenha()}}</mat-error>
+                <mat-hint align="end">{{senha.value?.length || 0}}/50</mat-hint>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row form mt-3">
+        <div class="col-xs-12 col-md-6">
+            <mat-form-field class="full-width-field" hintLabel="Máximo 8 caracteres">
+                <input (blur)="autoComplete(cep.value)" matInput #cep maxlength="8" placeholder="Cep" formControlName="cep" required>
+                <mat-error *ngIf="cep.invalid">{{getErrorMessageCep()}}</mat-error>
+                <mat-hint align="end">{{cep.value?.length || 0}}/8</mat-hint>
+            </mat-form-field>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <mat-form-field class="full-width-field" hintLabel="Máximo 50 caracteres">
+                <input matInput #logradouro maxlength="50" placeholder="Logradouro" formControlName="logradouro" required>
+                <mat-error *ngIf="logradouro.invalid">{{getErrorMessageLogradouro()}}</mat-error>
+                <mat-hint align="end">{{logradouro.value?.length || 0}}/50</mat-hint>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row form mt-3">
+        <div class="col-xs-12 col-md-6">
+            <mat-form-field class="full-width-field" hintLabel="Máximo 50 caracteres">
+                <input matInput #complemento maxlength="50" placeholder="Complemento" formControlName="complemento">
+            </mat-form-field>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <mat-form-field class="full-width-field" hintLabel="Máximo 50 caracteres">
+                <input matInput #bairro maxlength="50" placeholder="Bairro" formControlName="bairro" required>
+                <mat-error *ngIf="bairro.invalid">{{getErrorMessageBairro()}}</mat-error>
+                <mat-hint align="end">{{bairro.value?.length || 0}}/50</mat-hint>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row form mt-3">
+        <div class="col-xs-12 col-md-6">
+            <mat-form-field class="full-width-field" hintLabel="Máximo 50 caracteres">
+                <input matInput #localidade maxlength="50" placeholder="Localidade" formControlName="localidade" required>
+                <mat-error *ngIf="localidade.invalid">{{getErrorMessageLocalidadel()}}</mat-error>
+                <mat-hint align="end">{{localidade.value?.length || 0}}/50</mat-hint>
+            </mat-form-field>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <mat-form-field class="full-width-field" hintLabel="Máximo 50 caracteres">
+                <input matInput #uf maxlength="50" placeholder="UF" formControlName="uf" required>
+                <mat-error *ngIf="uf.invalid">{{getErrorMessageUf()}}</mat-error>
+                <mat-hint align="end">{{uf.value?.length || 0}}/50</mat-hint>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="botoes text-right mt-3">
+        <button mat-raised-button class="mr-2" color="primary" (click)="cadastrarUsuario()">Criar</button>
+        <button mat-raised-button color="basic" (click)="limpar()">Limpar</button>
+    </div>
+</form>

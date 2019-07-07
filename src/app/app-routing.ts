@@ -7,6 +7,7 @@ import { ModuleWithProviders } from '@angular/core';
 import { DetalheCategoriaComponent } from './pasta-categorias/detalhe-categoria/detalhe-categoria.component';
 import { ProdutosComponent } from './pasta-produtos/produtos/produtos.component';
 import { CriarProdutoComponent } from './pasta-produtos/criar-produto/criar-produto.component';
+import { CadastroComponent } from './pasta-usuarios/cadastro/cadastro.component';
 
 const APP_ROUTES: Routes = [
     { path: 'categorias', component: CategoriasComponent},
@@ -15,7 +16,8 @@ const APP_ROUTES: Routes = [
     { path: 'produtos', component: ProdutosComponent},
     { path: 'produtos/novo', component: CriarProdutoComponent},
     { path: 'produtos/:id', component: DetalheProdutoComponent},
-    { path: '', component: HomeComponent}
+    { path: 'cadastro', component: CadastroComponent},
+    { path: '', component: CadastroComponent}
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);

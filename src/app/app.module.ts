@@ -27,6 +27,9 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
 import {MatMenuModule} from '@angular/material/menu';
+import { CadastroComponent } from './pasta-usuarios/cadastro/cadastro.component';
+import { ProdutosServicoService } from './pasta-produtos/produtos-servico.service';
+import { CadastroService } from './pasta-usuarios/cadastro.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,8 @@ import {MatMenuModule} from '@angular/material/menu';
     CriarCategoriaComponent,
     ProdutosComponent,
     DetalheProdutoComponent,
-    CriarProdutoComponent
+    CriarProdutoComponent,
+    CadastroComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +63,7 @@ import {MatMenuModule} from '@angular/material/menu';
     MatTableModule,
     MatMenuModule
   ],
-  providers: [CategoriasServicoService],
+  providers: [CategoriasServicoService, ProdutosServicoService, CadastroService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
