@@ -9,14 +9,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'ConsumirAPI';
 
-  monstrarMenu: boolean = false;
+  monstrarLogout: boolean = false;
 
-  constructor(private authServico: AuthService) {
+  constructor() {
 
   }
   ngOnInit(): void {
-    this.authServico.mostrarMenuEmitter.subscribe(
-      mostrar => this.monstrarMenu = mostrar
-    );
   }
 }
