@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { CadastroService } from '../cadastro.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro',
@@ -21,10 +22,10 @@ export class CadastroComponent implements OnInit {
   logradouro = new FormControl('', [Validators.required, Validators.minLength(3)]);
   bairro = new FormControl('', [Validators.required, Validators.minLength(3)]);
   localidade = new FormControl('', [Validators.required, Validators.minLength(3)]);
-  uf = new FormControl('', [Validators.required, Validators.minLength(3)]);
+  uf = new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(2)]);
 
 
-  constructor(private cadastroServico: CadastroService, private fb: FormBuilder, private snackBar: MatSnackBar) { }
+  constructor(private cadastroServico: CadastroService, private fb: FormBuilder, private snackBar: MatSnackBar, private route: Router) { }
 
   ngOnInit() {
     this.validaForm();
@@ -41,8 +42,14 @@ export class CadastroComponent implements OnInit {
       complemento: [null],
       bairro: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
       localidade: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
-      uf: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(50)]]
+      uf: [null, [Validators.required, Validators.minLength(2), Validators.maxLength(2)]]
     });
+  }
+
+  cadastrarUsuario(){
+    if(this.form.valid){
+      this.cadastroServico.addUsuario(this.form.value).subscribe(() => this.route.navigateByUrl('/produtos'));
+    }
   }
 
   getErrorMessageNome(){
@@ -102,9 +109,7 @@ export class CadastroComponent implements OnInit {
         })
       },
       error => {
-        this.error = error;
-        console.log(this.error);
-        //this.snackOpen('CEP Inválido!', 'Fechar');
+        this.snackOpen('CEP Inválido!', 'Fechar');
       });
     }
   }
@@ -114,5 +119,9 @@ export class CadastroComponent implements OnInit {
       duration: 2000,
       panelClass: ['alert-snackbar']
     });
+  }
+
+  limpar() {
+    this.form.reset();
   }
 }

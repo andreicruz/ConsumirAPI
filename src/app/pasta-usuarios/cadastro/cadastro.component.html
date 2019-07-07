@@ -33,7 +33,7 @@
     </div>
     <div class="row form mt-3">
         <div class="col-xs-12 col-md-6">
-            <mat-form-field class="full-width-field" hintLabel="Máximo 50 caracteres">
+            <mat-form-field class="full-width-field" hintLabel="Máximo 8 caracteres">
                 <input (blur)="autoComplete(cep.value)" matInput #cep maxlength="8" placeholder="Cep" formControlName="cep" required>
                 <mat-error *ngIf="cep.invalid">{{getErrorMessageCep()}}</mat-error>
                 <mat-hint align="end">{{cep.value?.length || 0}}/8</mat-hint>
@@ -79,7 +79,7 @@
     </div>
 
     <div class="botoes text-right mt-3">
-        <button mat-raised-button class="mr-2" color="primary" (click)="addCategoria()">Criar</button>
+        <button mat-raised-button class="mr-2" color="primary" (click)="cadastrarUsuario()">Criar</button>
         <button mat-raised-button color="basic" (click)="limpar()">Limpar</button>
     </div>
 </form>
