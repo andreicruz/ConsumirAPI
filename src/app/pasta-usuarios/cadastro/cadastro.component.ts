@@ -14,6 +14,7 @@ export class CadastroComponent implements OnInit {
   
   error: HttpErrorResponse
   form: FormGroup;
+  login = new FormControl('', [Validators.required, Validators.minLength(3)]);
   nome = new FormControl('', [Validators.required, Validators.minLength(3)]);
   sobrenome = new FormControl('', [Validators.required, Validators.minLength(3)]);
   email = new FormControl('', [Validators.required, Validators.minLength(3), Validators.email]);
@@ -33,6 +34,7 @@ export class CadastroComponent implements OnInit {
 
   validaForm(){
     this.form = this.fb.group({
+      login: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
       nome: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
       sobrenome: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
       email: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.email]],
@@ -48,8 +50,14 @@ export class CadastroComponent implements OnInit {
 
   cadastrarUsuario(){
     if(this.form.valid){
-      this.cadastroServico.addUsuario(this.form.value).subscribe(() => this.route.navigateByUrl('/produtos'));
+      this.cadastroServico.addUsuario(this.form.value).subscribe(() => this.route.navigateByUrl('/login'));
     }
+  }
+
+
+  getErrorMessageLogin(){
+    return this.login.hasError('required') ? 'Mínimo 3 digitos' :
+    this.login.hasError('login') ? 'Login inválido' : '';
   }
 
   getErrorMessageNome(){

@@ -1,3 +1,4 @@
+import { LoginComponent } from './pasta-usuarios/login/login.component';
 import { DetalheProdutoComponent } from './pasta-produtos/detalhe-produto/detalhe-produto.component';
 import { CriarCategoriaComponent } from './pasta-categorias/criar-categoria/criar-categoria.component';
 import { HomeComponent } from './home/home.component';
@@ -16,7 +17,9 @@ const APP_ROUTES: Routes = [
     { path: 'produtos', component: ProdutosComponent},
     { path: 'produtos/novo', component: CriarProdutoComponent},
     { path: 'produtos/:id', component: DetalheProdutoComponent},
+    { path: 'home', component: HomeComponent},
     { path: 'cadastro', component: CadastroComponent},
+    { path: 'login', component: LoginComponent},
     { path: '', component: CadastroComponent}
 ];
 

@@ -30,6 +30,8 @@ import {MatMenuModule} from '@angular/material/menu';
 import { CadastroComponent } from './pasta-usuarios/cadastro/cadastro.component';
 import { ProdutosServicoService } from './pasta-produtos/produtos-servico.service';
 import { CadastroService } from './pasta-usuarios/cadastro.service';
+import { LoginComponent } from './pasta-usuarios/login/login.component';
+import { AuthService } from './pasta-usuarios/auth.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { CadastroService } from './pasta-usuarios/cadastro.service';
     ProdutosComponent,
     DetalheProdutoComponent,
     CriarProdutoComponent,
-    CadastroComponent
+    CadastroComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +66,7 @@ import { CadastroService } from './pasta-usuarios/cadastro.service';
     MatTableModule,
     MatMenuModule
   ],
-  providers: [CategoriasServicoService, ProdutosServicoService, CadastroService],
+  providers: [CategoriasServicoService, ProdutosServicoService, CadastroService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
