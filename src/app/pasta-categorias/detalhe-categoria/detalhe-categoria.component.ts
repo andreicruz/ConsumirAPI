@@ -15,7 +15,7 @@ export class DetalheCategoriaComponent implements OnInit {
   nome = new FormControl('', [Validators.required, Validators.minLength(3)]);
   descricao = new FormControl('', [Validators.required, Validators.minLength(3)]);
 
-  constructor(private categoriaServico: CategoriasServicoService, private route: ActivatedRoute, private fb: FormBuilder,) { }
+  constructor(private categoriaServico: CategoriasServicoService, private route: ActivatedRoute, private fb: FormBuilder) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
