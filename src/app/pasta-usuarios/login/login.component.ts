@@ -1,3 +1,4 @@
+import { AuthService } from './../auth.service';
 import { Usuario } from './../usuario';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   login = new FormControl('', [Validators.required, Validators.minLength(3)]);
   senha = new FormControl('', [Validators.required, Validators.minLength(3)]);
   
-  constructor(private cadastroServico: CadastroService, private fb: FormBuilder, private snackBar: MatSnackBar) { }
+  constructor(private authServico: AuthService, private cadastroServico: CadastroService, private fb: FormBuilder, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -33,10 +34,12 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  validaUsuario(usario: Usuario){
-    if(usario.login === this.form.controls.login.value && usario.senha === this.form.controls.senha.value){
-      console.log('é igual');
+  validaUsuario(usuario: Usuario){
+    if(usuario.login === this.form.controls.login.value && usuario.senha === this.form.controls.senha.value){
+      this.authServico.fazerLogin(usuario);
     }else{
+      this.authServico.usuarioAutenticado = false;
+      this.authServico.mostrarMenuEmitter.emit(false);
       this.snackOpen('Login/senha incorreta', 'Fechar');
     }
 

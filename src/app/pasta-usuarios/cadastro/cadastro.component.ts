@@ -50,7 +50,7 @@ export class CadastroComponent implements OnInit {
 
   cadastrarUsuario(){
     if(this.form.valid){
-      this.cadastroServico.addUsuario(this.form.value).subscribe(() => this.route.navigateByUrl('/produtos'));
+      this.cadastroServico.addUsuario(this.form.value).subscribe(() => this.route.navigateByUrl('/login'));
     }
   }
 

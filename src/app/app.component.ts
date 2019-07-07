@@ -1,3 +1,4 @@
+import { AuthService } from './pasta-usuarios/auth.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ConsumirAPI';
+
+  monstrarMenu: boolean = false;
+
+  constructor(private authServico: AuthService) {
+
+  }
+  ngOnInit(): void {
+    this.authServico.mostrarMenuEmitter.subscribe(
+      mostrar => this.monstrarMenu = mostrar
+    );
+  }
 }
