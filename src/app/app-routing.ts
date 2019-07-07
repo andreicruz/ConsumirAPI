@@ -9,18 +9,10 @@ import { DetalheCategoriaComponent } from './pasta-categorias/detalhe-categoria/
 import { ProdutosComponent } from './pasta-produtos/produtos/produtos.component';
 import { CriarProdutoComponent } from './pasta-produtos/criar-produto/criar-produto.component';
 import { CadastroComponent } from './pasta-usuarios/cadastro/cadastro.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const APP_ROUTES: Routes = [
-    { path: 'categorias', component: CategoriasComponent},
-    { path: 'categorias/novo', component: CriarCategoriaComponent},
-    { path: 'categorias/:id', component: DetalheCategoriaComponent},
-    { path: 'produtos', component: ProdutosComponent},
-    { path: 'produtos/novo', component: CriarProdutoComponent},
-    { path: 'produtos/:id', component: DetalheProdutoComponent},
-    { path: 'home', component: HomeComponent},
-    { path: 'cadastro', component: CadastroComponent},
-    { path: 'login', component: LoginComponent},
-    { path: '', component: CadastroComponent}
+
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);

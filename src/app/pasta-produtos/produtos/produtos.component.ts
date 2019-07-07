@@ -1,3 +1,4 @@
+import { AuthService } from './../../pasta-usuarios/auth.service';
 import { ProdutosServicoService } from './../produtos-servico.service';
 import { Component, OnInit } from '@angular/core';
 import { Produto } from '../produto';
@@ -13,7 +14,7 @@ export class ProdutosComponent implements OnInit {
   produto: Produto;
   displayedColumns: string[] = ['id', 'nome', 'descricao', 'preco', 'categoria_id', 'config'];
 
-  constructor(private produtoServico: ProdutosServicoService) { }
+  constructor(private produtoServico: ProdutosServicoService, private authServico: AuthService) { }
 
   ngOnInit() {
     this.getProdutos();
@@ -25,9 +26,11 @@ export class ProdutosComponent implements OnInit {
   }
 
   deleteProduto(produto: Produto) { 
-    if(confirm(`Deseja deletar o produto ${produto.nome}?`)){
-      this.produtoServico.deleteProduto(produto).subscribe();
-      this.produtos = this.produtos.filter(item => item.id != produto.id);
+    if(this.authServico.usuarioEstaAutenticado()){
+      if(confirm(`Deseja deletar o produto ${produto.nome}?`)){
+        this.produtoServico.deleteProduto(produto).subscribe();
+        this.produtos = this.produtos.filter(item => item.id != produto.id);
+      }
     }
   }
 
