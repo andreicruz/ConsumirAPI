@@ -25,8 +25,10 @@ export class ProdutosComponent implements OnInit {
   }
 
   deleteProduto(produto: Produto) { 
+    if(confirm(`Deseja deletar o produto ${produto.nome}?`)){
       this.produtoServico.deleteProduto(produto).subscribe();
       this.produtos = this.produtos.filter(item => item.id != produto.id);
+    }
   }
 
 }
