@@ -20,8 +20,8 @@ export class CadastroService {
     return this.http.get<Usuario[]>(`${this.apiUrl}/usuarios`);
   }
 
-  getUsuario(id) {
-    return this.http.get(`${this.apiUrl + '/usuarios'}/${id}`)
+  getUsuario(usario: Usuario): Observable<Usuario> {
+    return this.http.get<Usuario>(`${this.apiUrl + '/usuarios'}/${usario.login}`);
   }
 
   updateUsuario(usuario: Usuario){

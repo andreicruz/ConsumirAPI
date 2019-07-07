@@ -2,6 +2,7 @@ export class Usuario {
     id: number;
     nome: string;
     sobrenome: string;
+    login: string;
     email: string;
     senha: string;
     cep: Cep;

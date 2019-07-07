@@ -1,0 +1,22 @@
+<form [formGroup]="form">
+    <div class="row form">
+        <div class="col-xs-12 col-md-6">
+            <mat-form-field class="full-width-field" hintLabel="Máximo 15 caracteres">
+                <input matInput #login maxlength="15" placeholder="Login" formControlName="login" required>
+                <mat-error *ngIf="login.invalid">{{getErrorMessageLogin()}}</mat-error>
+                <mat-hint align="end">{{login.value?.length || 0}}/15</mat-hint>
+            </mat-form-field>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <mat-form-field class="full-width-field" hintLabel="Máximo 50 caracteres">
+                <input matInput #senha maxlength="50" placeholder="Senha" formControlName="senha" required>
+                <mat-error *ngIf="senha.invalid">{{getErrorMessageSenha()}}</mat-error>
+                <mat-hint align="end">{{senha.value?.length || 0}}/50</mat-hint>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="botoes text-right mt-3">
+        <button mat-raised-button class="mr-2" color="primary" (click)="buscaUsuario()">Logar</button>
+        <button mat-raised-button color="basic" (click)="limpar()">Limpar</button>
+    </div>
+</form>
